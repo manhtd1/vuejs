@@ -1,14 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue js Tourist</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
     <div id="obj">
-        <h1> {{ dex }}</h1>
+      <h1>{{ message }}</h1>
+      <p>My age is: {{ age }}</p>
+      <a v-bind:href="website">facebook</a><br />
+      <button v-on:click="add">+1</button> 
+      <button v-on:click="minus">-1</button> 
+      <input type="text" v-model="noidung" />
+      <p>{{ noidung }}</p>
+      <!-- <div class="canvas" v-on:mousemove="point">Toa do cua : {{ x }},{{ y }}</div> -->
+      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div>
+      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div>
+      <div class="canvas" @click="changeColor" :class="['so3'? 'do': 'aqua']"></div>
+      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div> </br>
+
+      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div>
+      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div>
+      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div>
+      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div>
+    
     </div>
-</body>
+    <script>
+      var app = new Vue({
+        el: '#obj',
+        data: {
+          message: 'Trần Đức Mạnh',
+          age: '25',
+          website: 'https://www.facebook.com',
+          x: 0,
+          y: 0,
+          noidung: '',
+          color: false,
+          so3: false
+        },
+        methods: {
+            changeColor(){
+                this.so3 =!this.so3
+               this.color = !this.color 
+            },
+            changeRed(){
+                
+            },
+          add: function() {
+            this.age++
+            console.log(this.age)
+          },
+          minus: function() {
+            this.age--
+            console.log(this.age)
+          },
+          red:function(){
+              this
+          }
+        //   point: function(event) {
+        //     this.x = event.offsetX
+        //     this.y = event.offsetY
+        //   }
+        
+        },
+
+        computed: {
+        
+
+        }
+      })
+    </script>
+  </body>
 </html>
