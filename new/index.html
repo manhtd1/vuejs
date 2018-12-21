@@ -17,17 +17,21 @@
       <button v-on:click="minus">-1</button> 
       <input type="text" v-model="noidung" />
       <p>{{ noidung }}</p>
+     
       <!-- <div class="canvas" v-on:mousemove="point">Toa do cua : {{ x }},{{ y }}</div> -->
-      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div>
-      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div>
-      <div class="canvas" @click="changeColor" :class="['so3'? 'do': 'aqua']"></div>
-      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div> </br>
+      <!-- <div class="canvas" @click="changeColor" :class="['so1'? 'aqua': 'do']"></div>
+      <div class="canvas" @click="changeColor" :class="['so1'? 'aqua': 'do']"></div>
+      <div class="canvas" @click="changeColor" :class="['so1'? 'do': 'aqua']"></div>
+      <div class="canvas" @click="changeColor" :class="['so1'? 'aqua': 'do']"></div> </br> -->
 
-      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div>
-      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div>
-      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div>
-      <div class="canvas" @click="changeColor" :class="['so3'? 'aqua': 'do']"></div>
     
+      <div class="canvas" @click="changeColor()" :class="changeColor?{aqua:so2}:{do:so1}"></div>
+      <div class="canvas" @click="changeColor" :class="changeColor?{aqua:so2}:{do:so1}"></div>
+      <div class="canvas" @click="changeColor" :class="changeColor?{aqua:so2}:{do:so1}"></div>
+      <div class="canvas" @click="changeColor" :class="changeColor?{aqua:so2}:{do:so1}"></div>
+      <!-- <div class="canvas" @click="so2=!so2" :class="changeColor?{aqua:so2}:{do:so1}"></div> -->
+     
+     
     </div>
     <script>
       var app = new Vue({
@@ -36,19 +40,16 @@
           message: 'Trần Đức Mạnh',
           age: '25',
           website: 'https://www.facebook.com',
-          x: 0,
-          y: 0,
           noidung: '',
-          color: false,
-          so3: false
+          // color: false,
+          so1 : false,
+          so2: false,
+          
         },
         methods: {
-            changeColor(){
-                this.so3 =!this.so3
-               this.color = !this.color 
-            },
-            changeRed(){
-                
+          changeColor(){
+            console.log('variable: ')
+                this.so2 = !this.so2
             },
           add: function() {
             this.age++
@@ -58,9 +59,6 @@
             this.age--
             console.log(this.age)
           },
-          red:function(){
-              this
-          }
         //   point: function(event) {
         //     this.x = event.offsetX
         //     this.y = event.offsetY
@@ -69,9 +67,8 @@
         },
 
         computed: {
-        
-
-        }
+   
+        },
       })
     </script>
   </body>
