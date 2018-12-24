@@ -1,75 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>vue js Tourist</title>
-    <link href="style.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  </head>
-  <body>
-    <div id="obj">
-      <h1>{{ message }}</h1>
-      <p>My age is: {{ age }}</p>
-      <a v-bind:href="website">facebook</a><br />
-      <button v-on:click="add">+1</button> 
-      <button v-on:click="minus">-1</button> 
-      <input type="text" v-model="noidung" />
-      <p>{{ noidung }}</p>
-     
-      <!-- <div class="canvas" v-on:mousemove="point">Toa do cua : {{ x }},{{ y }}</div> -->
-      <!-- <div class="canvas" @click="changeColor" :class="['so1'? 'aqua': 'do']"></div>
-      <div class="canvas" @click="changeColor" :class="['so1'? 'aqua': 'do']"></div>
-      <div class="canvas" @click="changeColor" :class="['so1'? 'do': 'aqua']"></div>
-      <div class="canvas" @click="changeColor" :class="['so1'? 'aqua': 'do']"></div> </br> -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <style>
+  button{
+    width: 100px;
+  }
+  </style>
+</head>
 
-    
-      <div class="canvas" @click="changeColor()" :class="changeColor?{aqua:so2}:{do:so1}"></div>
-      <div class="canvas" @click="changeColor" :class="changeColor?{aqua:so2}:{do:so1}"></div>
-      <div class="canvas" @click="changeColor" :class="changeColor?{aqua:so2}:{do:so1}"></div>
-      <div class="canvas" @click="changeColor" :class="changeColor?{aqua:so2}:{do:so1}"></div>
-      <!-- <div class="canvas" @click="so2=!so2" :class="changeColor?{aqua:so2}:{do:so1}"></div> -->
-     
-     
-    </div>
-    <script>
-      var app = new Vue({
-        el: '#obj',
-        data: {
-          message: 'Trần Đức Mạnh',
-          age: '25',
-          website: 'https://www.facebook.com',
-          noidung: '',
-          // color: false,
-          so1 : false,
-          so2: false,
-          
-        },
-        methods: {
-          changeColor(){
-            console.log('variable: ')
-                this.so2 = !this.so2
-            },
-          add: function() {
-            this.age++
-            console.log(this.age)
-          },
-          minus: function() {
-            this.age--
-            console.log(this.age)
-          },
-        //   point: function(event) {
-        //     this.x = event.offsetX
-        //     this.y = event.offsetY
-        //   }
-        
-        },
+<body>
+  <div id="app">
 
-        computed: {
-   
-        },
-      })
-    </script>
-  </body>
+    <p> Who Am I</p>
+    <p v-if="yes">Manh</p>
+    <p v-else>Deo biet</p>
+    <button @click="yes =!yes">tra loi</button>
+  </div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      yes: true
+    }
+  })
+</script>
+</body>
 </html>
