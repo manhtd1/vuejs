@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="student in students">
+            <div v-for="(value, key, index) in student"> {{key}}: {{value}} ({{index}})</div>
+        </li>
+      </ul>
+      <div v-for="(menu, i) in menus">{{menu}} co index la {{i}}</div>
+      <button @click="menus.unshift('test')"> bam vao de them 1</button>
+    </div>
+    <script>
+      new Vue({
+          el:"#app",
+          data:{
+              menus:['home','contact','about','blog'],
+              students:[
+                {name: 'manh',age:'25',class:'cntt'},
+                {name: 'hung',age:'22',class:'xd'},
+                {name: 'dat',age:'25',class:'kt'}]
+          }
+      })
+    </script>
+  </body>
+</html>
