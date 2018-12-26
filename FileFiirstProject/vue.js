@@ -11,7 +11,7 @@ new Vue({
       this.gameisRunning = true,
       this.playerHeath = 100,
       this.monsterHeath = 100,
-      turns= []
+      this.turns= []
     },
     attack() {
         //checkoptions
@@ -53,7 +53,9 @@ new Vue({
         this.monsterAttack();
     },
     giveUp(){
-        this.startNewGame();
+        this.startNewGame(),
+        this.gameisRunning =  false;
+        alert('You Lost')
     },
     inputDamage(minDamage,maxDamage){
         return Math.floor(Math.random() * maxDamage) + minDamage
