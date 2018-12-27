@@ -1,22 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <section class="">
-
+      <section class="wrap">
+        <section class="container">
+          <input v-model="list" type="text" /> <button @click="addE">Add</button>
+          <div class='todo-list' v-show="list.length >0">
+            <ul>
+              <li v-for="list in lists">
+                  {{ list.name }} 
+                  <button @click="dele(list)">delete</button>
+                </li>
+            </ul>
+          </div>
         </section>
-
-
-
-
+      </section>
     </div>
-</body>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          lists: [],
+       
+    
+          list:''
+        },
+        methods: {
+          dele(list) {
+            this.lists.splice(this.lists.indexOf(list - 1), 1)
+          },
+          addE(){
+              this.lists.push({name:this.list})
+          }
+        }
+      })
+    </script>
+  </body>
 </html>
