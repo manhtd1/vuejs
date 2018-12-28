@@ -1,13 +1,30 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <h1>{{name}}</h1>
+    <p>{{ko}}</p>
+    <input type="text" v-model="name" >
+    
+
   </div>
 </template>
 
 <script>
+import tung from '../src/main.js'
+
+
 export default {
-  name: 'App'
+  name: 'app',
+  data() {
+    return {
+      name: "tung",
+      ko:"name",
+      tung
+    }
+  },
+  methods: {
+    
+
+  }
 }
 </script>
 
