@@ -21,7 +21,7 @@
           <input v-model="list" type="text" /> <button @click="addE">Add</button>
           <div class='todo-list' v-show="list.length >0">
             <ul>
-              <li v-for="list in lists">
+              <li v-for="list in lists" @click='checked' :class='{ checked: isChecked }'>
                   {{ list.name }} 
                   <button @click="dele(list)">delete</button>
                 </li>
@@ -35,8 +35,7 @@
         el: '#app',
         data: {
           lists: [],
-       
-    
+          isChecked: true,
           list:''
         },
         methods: {
@@ -45,6 +44,9 @@
           },
           addE(){
               this.lists.push({name:this.list})
+          },
+          checked(){
+            this.isChecked = !this.isChecked
           }
         }
       })
