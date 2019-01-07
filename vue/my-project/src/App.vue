@@ -1,12 +1,15 @@
 <template>
   <div>
-<app-blog></app-blog>
+<!-- <app-blog></app-blog> -->
+<show-blogs></show-blogs>
   </div>
 </template>
 <script>
 export default {
   data() {
-    return {}
+    return {
+      
+    }
   },
   methods: {}
 }

@@ -7,6 +7,7 @@ import router from './router'
 // import Footer from './components/Footer.vue'
 // import Manh from './components/Manh.vue'
 import blog from './components/blog.vue'
+import showBlogs from './components/showBlogs.vue'
 import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
@@ -16,6 +17,7 @@ Vue.config.productionTip = false
 // Vue.component('app-header',Header)
 // Vue.component('app-footer',Footer)
 Vue.component('app-blog',blog)
+Vue.component('show-blogs',showBlogs)
 
 /* eslint-disable no-new */
 new Vue({
