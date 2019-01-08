@@ -1,6 +1,7 @@
 <template>
   <div>
-<!-- <app-blog></app-blog> -->
+<app-blog></app-blog>
+<hr>
 <show-blogs></show-blogs>
   </div>
 </template>

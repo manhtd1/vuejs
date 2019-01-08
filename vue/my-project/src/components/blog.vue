@@ -26,10 +26,9 @@
       <div v-if="submitted">
           <h3>Thanks for adding blog</h3>
       </div>
-
         <div id="preview">
             <h3>Preview Blog</h3>
-            <p>Blog Title:{{blog.title}}</p>
+            <p>Blog Title:{{filters(blog.title)}}</p>
             <p>Blog Content:</p>
             <p> {{blog.content}} </p>
             <p> Blog catalogues:</p>
@@ -55,15 +54,43 @@ export default {
     }
   },
   methods: {
-    post:function() {
-      this.$http.post('https://jsonplaceholder.typicode.com/posts',{
-          title: this.blog.title,
-          body: this.blog.content,
-          userId: 1
-        }).then(function(data){
-            console.log(data)
-            this.submitted = true
+    // post:function() {
+    //   this.$http.post('https://jsonplaceholder.typicode.com/posts',{
+    //       title: this.blog.title,
+    //       body: this.blog.content,
+    //       userId: 1
+    //     }).then(function(data){
+    //         console.log(data)
+    //         this.submitted = true
+    //     })
+    // }
+    post: function() {
+      this.$http.post('https://vue-http-da373.firebaseio.com/data.json', this.blog).then(
+        response => {
+          console.log(response)
+        },
+        error => {
+          console.log(error)
+        }
+      )
+      this.submitted = true
+    },
+    get: function() {
+      this.$http
+        .get('https://vue-http-da373.firebaseio.com/data.json')
+        .then(response => {
+          return response.json()
         })
+        .then(data => {
+          const newArr = []
+          for (let key in data) {
+            newArr.push(data[key])
+          }
+          this.blogs = newArr
+        })
+    },
+    filters: function(value) {
+      return value.toUpperCase()
     }
   }
 }

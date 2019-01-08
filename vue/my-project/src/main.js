@@ -12,6 +12,11 @@ import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
 Vue.config.productionTip = false
+Vue.directive('rainbow',{
+  bind(el,binding,vnode){
+    el.style.color = '#'+ Math.random().toString().slice(3,9)
+  }
+})
 // Vue.component('ninjas', ninjas)
 // Vue.component('app-manh',Manh)
 // Vue.component('app-header',Header)
