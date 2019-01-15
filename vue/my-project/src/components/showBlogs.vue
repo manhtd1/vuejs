@@ -33,6 +33,9 @@ export default {
           }
           this.blogs = newArr
         })
+    },
+    deletee: function(){
+      this.$http.delete
     }
   },
   computed: {
